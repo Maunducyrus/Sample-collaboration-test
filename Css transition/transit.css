@@ -1,0 +1,109 @@
+body{
+    background-color: blue;
+}
+div p{
+  text-align: center;
+ position: relative;
+ margin: auto;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  filter: darkgreen(100%);
+}
+img:hover {
+  box-shadow: 0 0 7px 2px red;
+}
+div.Tr {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 3s; 
+    transition: width 3s height 4s;
+    animation-play-state: paused;
+  }
+  
+  div.Tr:hover {
+    width: 500px;
+  }
+  div {
+    transition: width 2s, height 4s;
+  }
+  div.Mr {
+    text-align: center;
+    padding-top: 0%;
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; 
+    transition: width 2s, height 2s, transform 2s;
+  }
+  
+  div.Mr:hover {
+    width: 300px;
+    height: 300px;
+    -webkit-transform: rotate(360deg); 
+    transform: rotate(360deg);
+  }
+  div.Animate {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 10s; 
+    animation-name: example;
+    animation-duration: 6s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+  }
+  
+  
+  @keyframes example {
+    0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: rgb(255, 0, 170);}
+  100% {background-color: green;}
+  }
+
+  div.movement {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: Robotic-move;
+    animation-duration: 7s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+  @keyframes Robotic-move {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:white; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+  }
+  div {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    font-weight: bold;
+    position: relative;
+    -webkit-animation: mymove 5s infinite; 
+    animation: mymove 5s infinite;
+  }
+
+  #div1 {animation-timing-function: linear;}
+  #div2 {animation-timing-function: ease;}
+  #div3 {animation-timing-function: ease-in;}
+  #div4 {animation-timing-function: ease-out;}
+  #div5 {animation-timing-function: ease-in-out;}
+   
+  @keyframes mymove {
+    from {left: 0px;}
+    to {left: 800px;}
+  }
+
+  
