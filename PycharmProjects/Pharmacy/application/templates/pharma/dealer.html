@@ -1,0 +1,259 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dealer Details</title>
+    <link rel="stylesheet" href="{% static 'pharma/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"
+            integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'pharma/js/npm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pharma/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pharma/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pharma/js/script.js' %}"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/pharma/" class="navbar-brand"><span
+                    class="glyphicon glyphicon glyphicon-home"></span>&nbsp;HOME</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#thisnav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="thisnav">
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dealer Management<b
+                        class="caret"></b></a>
+                    <ul id="dealer-menu" class="dropdown-menu inverse-dropdown">
+                        <li><a href="/pharma/dealerform/">Add Dealer Details</a></li>
+                        <li><a href="/pharma/dealertable/">View Dealer Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Medicine Management<b
+                        class="caret"></b></a>
+                    <ul id="med-menu" class="dropdown-menu inverse-dropdown">
+                        <li><a href="/pharma/medform/">Add Medicine Details</a></li>
+                        <li><a href="/pharma/medtable/">View Medicine Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Employee Management<b
+                        class="caret"></b></a>
+                    <ul id="emp-menu" class="dropdown-menu inverse-dropdown">
+                        <li><a href="/pharma/empform/">Add Employee Details</a></li>
+                        <li><a href="/pharma/emptable/">View Employee Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Customer Management<b
+                        class="caret"></b></a>
+                    <ul id="cust-menu" class="dropdown-menu inverse-dropdown">
+                        <li><a href="/pharma/custform/">Add Customer Details</a></li>
+                        <li><a href="/pharma/custtable/">View Customer Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Purchase Information<b
+                        class="caret"></b></a>
+                    <ul id="cust-menu" class="dropdown-menu inverse-dropdown">
+                        <li><a href="/pharma/purchaseform/">New Purchase</a></li>
+                        <li><a href="/pharma/purchasetable/">View All Purchases</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="modalContactForm" tabindex="-1">
+    <form action="https://formspree.io/soham5959595@gmail.com" method="post">
+        {% csrf_token %}
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i><label class="modaltext" for="form34"> Your name</label>
+                        <input type="text" id="form34" name="cu-name" class="form-control validate">
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i><label class="modaltext" for="form29"> Your email</label>
+                        <input type="email" id="form29" name="cu-mail" class="form-control validate">
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-tag prefix grey-text"></i><label class="modaltext" for="form32"> Subject</label>
+                        <input type="text" id="form32" name="cu-subject" class="form-control validate">
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-pencil-alt prefix grey-text"></i><label class="modaltext" for="form8"> Your message</label>
+                        <textarea type="text" id="form8" name="cu-message" class="md-textarea form-control"
+                                  rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-brown">Send <i class="fas fa-paper-plane ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="panel panel-default col-md-8 jumcust2">
+        <div class="panel-heading">
+            <h1 class="padtop5">
+                {% if add %}
+                    Add Dealer Details
+                {% else %}
+                    Update Dealer Details
+                {% endif %}
+            </h1>
+        </div>
+        <div class="panel-body">
+            {% if dealer %}
+                <form action="/pharma/dealerformupdate{{ dealer.id }}/" method="post">
+                    {% csrf_token %}
+                    <div class="row padtop15">
+                        <div class="col-md-3 padtop5">
+                            <label for="dname" class="form-control-label">Dealer Name:</label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="text" name="dname" class="form-control" id="dname" placeholder="Dealer Name"
+                                   value="{{ dealer.dname }}" required/>
+                        </div>
+                    </div>
+                    <div class="row padtop5">
+                        <div class="col-md-3 padtop5">
+                            <label for="address" class="form-control-label">Address:</label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="text" class="form-control" id="address" placeholder="Address" name="address"
+                                   value="{{ dealer.address }}"/>
+                        </div>
+                    </div>
+                    <div class="row padtop5">
+                        <div class="col-md-3">
+                            <label for="phn_no" class="form-control-label padtop5">Phone Number:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="pno" class="form-control" id="phn_no" placeholder="Contact Number"
+                                   value="{{ dealer.phn_no }}" required/>
+                        </div>
+                    </div>
+                    <div class="row padtop15">
+                        <div class="col-md-3">
+                            <label for="email" class="form-control-label padtop5">Email:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Email"
+                                   value="{{ dealer.email }}"/>
+                        </div>
+                    </div>
+                    <div class="row" id="buttoncustom">
+                        <div class="col-md-3 col-md-o"></div>
+                        <div class="col-md-2 padtop15">
+                            <button type="submit" class="btn btn-default"><a href="/pharma/">Cancel</a></button>
+                        </div>
+                        <div class="col-md-2 padtop15">
+                            <button type="submit" class="btn btn-primary">
+                                {% if add %}
+                                    Add Record
+                                {% else %}
+                                    Update Record
+                                {% endif %}
+                            </button>
+                        </div>
+                        <div class="col-md-offset-8 padtop15">
+                            <button type="submit" class="delbut btn btn-danger"><a
+                                    href="/pharma/dealerformdelete{{ dealer.id }}/">Delete Record</a></button>
+                        </div>
+                    </div>
+                </form>
+            {% else %}
+                <form action="/pharma/dealerforminsert/" method="post">
+                    {% csrf_token %}
+                    <div class="row padtop15">
+                        <div class="col-md-3 padtop5">
+                            <label for="dname" class="form-control-label">Dealer Name:</label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="text" name="dname" class="form-control" id="dname" placeholder="Dealer Name"
+                                   value="" required/>
+                        </div>
+                    </div>
+                    <div class="row padtop5">
+                        <div class="col-md-3 padtop5">
+                            <label for="address" class="form-control-label">Address:</label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="text" class="form-control" id="address" placeholder="Address" name="address"/>
+                        </div>
+                    </div>
+                    <div class="row padtop5">
+                        <div class="col-md-3">
+                            <label for="phn_no" class="form-control-label padtop5">Phone Number:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="pno" class="form-control" id="phn_no" placeholder="Contact Number"
+                                   required/>
+                        </div>
+                    </div>
+                    <div class="row padtop15">
+                        <div class="col-md-3">
+                            <label for="email" class="form-control-label padtop5">Email:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Email"/>
+                        </div>
+                    </div>
+                    <div class="row" id="buttoncustom">
+                        <div class="col-md-3 col-md-o"></div>
+                        <div class="col-md-2 padtop15">
+                            <button type="submit" class="btn btn-default"><a href="/pharma/">Cancel</a></button>
+                        </div>
+                        <div class="col-md-2 padtop15">
+                            <button type="submit" class="btn btn-primary">
+                                {% if add %}
+                                    Add Record
+                                {% else %}
+                                    Update Record
+                                {% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
+<footer id="contact" class="container-fluid text-center">
+    <div class="row">
+        <div class="left-footer col-lg-6">
+            <span class="footer-text">Have any queries? Contact us via email or call or Whatsapp  us on +91 6263056779.</span>
+        </div>
+        <div class="col-lg-4"></div>
+        <div class="right-footer col-lg-2">
+                <span class="linkto" onclick=" window.open('https://projectworlds.in/', '_blank'); return false;"><i
+                        class="fab fa-globe-square prefix mr-1"></i> Projectworlds</span>
+            <span>-</span>
+            <span class="linkto" data-toggle="modal" data-target="#modalContactForm"><i
+                    class="fa fa-envelope prefix mr-1"></i> Contact Us</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

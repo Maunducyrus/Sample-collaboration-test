@@ -1,0 +1,132 @@
+/*!* Make the navbar sticky to the top *!*/
+/*.navbar {*/
+/*    position: sticky;*/
+/*    top: 0;*/
+/*    z-index: 1020; !* Ensure it stays above other elements *!*/
+/*}*/
+
+/*!* Navbar brand styling *!*/
+/*.navbar-brand {*/
+/*    font-weight: bold;*/
+/*    font-size: 1.5rem;*/
+/*}*/
+
+/*!* Adjust dropdown menu appearance *!*/
+/*.dropdown-menu {*/
+/*    min-width: 150px; !* Adjust dropdown width *!*/
+/*}*/
+
+/*!* Navbar link styling *!*/
+/*.navbar-nav .nav-link {*/
+/*    padding: 10px 15px; !* Add padding for better clickability *!*/
+/*    color: #2c8d02; !* Ensure links are visible *!*/
+/*}*/
+
+/*.navbar-nav .nav-link:hover {*/
+/*    background-color: rgba(255, 255, 255, 0.2); !* Add hover effect *!*/
+/*}*/
+
+/*!* Adjust container spacing for responsiveness *!*/
+/*.container {*/
+/*    margin-top: 2rem;*/
+/*}*/
+
+
+/* Custom Navbar Styles */
+.custom-navbar {
+    background-color: #2d3e50; /* Deep blue background for the navbar */
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #f8f9fa; /* Light color for the text */
+    font-size: 1.1rem; /* Slightly larger font size */
+    margin-right: 20px; /* Space between nav links */
+    padding: 10px 15px;
+    text-transform: uppercase; /* Capitalize text for a more modern look */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Navbar Hover Effects */
+.navbar-nav .nav-item .nav-link:hover {
+    color: #007bff; /* Change color on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Add a subtle background */
+    border-radius: 5px; /* Rounded corners for the hover effect */
+}
+
+/* Custom color for the nav-links container */
+.nav-links-container {
+    background-color: #34495e; /* Darker background for the nav container */
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+/* Styling for the Logout button */
+.logout-button {
+    background-color: #e74c3c; /* Red color */
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center; /* Center-align the nav items on mobile */
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 10px; /* Space between items on small screens */
+    }
+
+    .nav-links-container {
+        padding: 10px 0;
+    }
+
+    .logout-button {
+        display: block;
+        width: 100%; /* Make logout button full-width on mobile */
+        margin-top: 10px;
+    }
+}
+/* Footer Styles */
+.footer {
+    background-color: #2d3e50; /* Same as navbar background color */
+    color: #f8f9fa; /* Light color for text */
+    padding: 10px 0; /* Smaller padding for a smaller footer height */
+    position: relative;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}
+
+.footer-text {
+    font-size: 1.2rem; /* Adjust font size for a smaller footer */
+    margin: 0;
+}
+
+/* Ensure the footer stays at the bottom of the page */
+html, body {
+    height: 88%;
+    margin: 0;
+}
+
+/* Content styling to push footer to the bottom if content is small */
+.container {
+    min-height: 100%; /* Ensure content fills the screen */
+    display: flex;
+    flex-direction: column;
+}
+
+.container .footer {
+    margin-top: auto; /* Push footer to the bottom of the page */
+}

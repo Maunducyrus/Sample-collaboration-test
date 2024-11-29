@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block title%}
+
+About
+
+{% endblock %}
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<div class="container">
+    <h1>About Us</h1>
+    <p>Welcome to Tech Haven Electronics! We are your one-stop shop for all things tech, offering the latest in high-quality electronics and top-notch customer service.</p>
+
+    <p>Our mission is to bring innovative technology into every household and business, making life easier, more connected, and enjoyable.</p>
+
+    <div class="features">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Wide selection of the latest electronics</li>
+            <li>Competitive prices and great deals</li>
+            <li>Expert team providing reliable tech advice</li>
+            <li>Excellent customer support and service</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<h3>Student List</h3>
+<table class="table">
+<thead>
+<tr>
+    <th>PHOTO</th>
+    <th>NAME</th>
+    <th>AGE</th>
+    <th>GENDER</th>
+    <th>COURSE</th>
+    <th></th>
+    <th></th>
+</tr>
+</thead>
+    <tbody>
+    {% for student in data %}
+
+    <tr>
+        <td>
+            {% if student.image %}
+                    <img src="{{ student.image.url }}" alt="{{ student.name }}" style="height: 80px; width: 80px">
+            {% else %}
+                    <img src="{% static 'images/avatar.jpg' %}" alt="No image" style="height: 80px; width: 80px">
+            {% endif %}
+        </td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.gender }}</td>
+        <td>{{ student.course }}</td>
+        <td><a href="{% url 'edit' student.id %}" class="btn btn-success" type="button">EDIT STUDENT</a></td>
+        <td><a href="{% url 'delete' student.id %}" class="btn btn-danger" type="button"
+               onclick="return confirm('Are you sure you want to delete the student')">DELETE STUDENT</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+

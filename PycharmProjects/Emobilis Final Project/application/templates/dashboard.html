@@ -1,0 +1,62 @@
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Admin Dashboard</h1>
+
+    <!-- Dropdown Menu for Sections -->
+    <div class="text-center mb-4">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dashboardMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                Dashboard Sections
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dashboardMenu">
+                <li><a class="dropdown-item" href="{% url 'inventory_list' %}">Inventory</a></li>
+                <li><a class="dropdown-item" href="{% url 'sales_list' %}">Sales</a></li>
+                <li><a class="dropdown-item" href="{% url 'orders_list' %}">Orders</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="row text-center">
+        <!-- Total Sales -->
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5>Total Sales Today</h5>
+                    <h2>₱ {{ total_sales }}</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Low Stock Items -->
+        <div class="col-md-3">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <h5>Low Stock Items</h5>
+                    <h2>{{ low_stock_count }}</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Expired Items -->
+        <div class="col-md-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h5>Expired Items</h5>
+                    <h2>{{ expired_items }}</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Pending Orders -->
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5>Pending Orders</h5>
+                    <h2>{{ pending_orders }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

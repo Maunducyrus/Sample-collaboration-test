@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emobilis - Shop</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;">
+<!--<nav class="navbar" style="background-color: #e3f2fd;>-->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Emobilis - Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Help</a>
+        </li>
+                  <li class="nav-item">
+          <a class="nav-link" href="#">FAQs</a>
+        </li>
+                  <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+           <a class="nav-link" href="#">Add Cart</a>
+
+      </span>
+    </div>
+  </div>
+</nav>
+
+<h1>OUR PRODUCTS</h1>
+
+<!--Card Section starts here-->
+
+<!--1st product-->
+
+<div class="card-container">
+<div class="card" style="width: 18rem;">
+  <img src="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/13/1151931/1.jpg?2122" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Vitron V652 3.1Ch</h5>
+    <p class="card-text">Vitron V652 3.1Ch Bluetooth Speaker System, 8000W PMPO - Black (1YR WRTY) + shipping from KSh 149 to CBD - UON/Globe/Koja/River Road</p>
+    <a href="#" class="btn btn-primary">ADD TO CART</a>
+  </div>
+</div>
+
+<!--2nd product-->
+<div class="card" style="width: 18rem;">
+  <img src="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/34/984339/1.jpg?3794" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Vitron TV</h5>
+    <p class="card-text">Vitron HTC4388FS - 43" Smart Android Frameless TV - Black (1YR WRTY) + Free Shipment for the first 10 buyers.</p>
+    <a href="#" class="btn btn-primary">ADD TO CART</a>
+  </div>
+</div>
+
+<!--3rd product-->
+<div class="card" style="width: 18rem;">
+  <img src="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/51/5079472/1.jpg?1491" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Samsung Galaxy</h5>
+    <p class="card-text">Samsung Galaxy A05, 6.7'' 4GB RAM + 128GB ROM (Dual Sim) 50MP Camera, 5000mAh, Black. Shipping from KSh 69 to CBD - UON/Globe/Koja/River Road</p>
+    <a href="#" class="btn btn-primary">ADD TO CART</a>
+  </div>
+</div>
+
+<!--4th product-->
+<div class="card" style="width: 18rem;">
+  <img src="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/61/2713261/1.jpg?8608" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Solar Light</h5>
+    <p class="card-text">Solar Light Three Rotatable Heads Solar Motion Sensor Flood Lights Outdoor With Remote + shipping from KSh 149 to CBD - UON/Globe/Koja/River Road</p>
+    <a href="#" class="btn btn-primary">ADD TO CART</a>
+  </div>
+</div>
+
+<!--5th product-->
+<div class="card" style="width: 18rem;">
+  <img src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/00/5836091/1.jpg?4638" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Full Touch Screen Smart Watch - For Android & IOS</h5>
+    <p class="card-text">We do delivery from KSh 69 (free delivery if order above KSh 1,999) to CBD - UON/Globe/Koja/River Road</p>
+    <a href="#" class="btn btn-primary">ADD To CART</a>
+  </div>
+</div>
+</div>
+
+<!--Javascript section-->
+<script>
+  // Initialize cart array from localStorage or create an empty array
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Function to add items to the cart
+  function addToCart(productName, productPrice) {
+    const item = { name: productName, price: productPrice, quantity: 1 };
+
+    // Check if item already exists in cart
+    const existingItem = cart.find((product) => product.name === productName);
+    if (existingItem) {
+      existingItem.quantity += 1; // Increase quantity if item already exists
+      alert(`${productName} quantity updated to ${existingItem.quantity}`);
+    } else {
+      cart.push(item); // Add new item to cart
+      alert(`${productName} added to cart!`);
+    }
+
+    // Save cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log("Cart after addition:", cart);  // Debugging output
+  }
+
+  // Function to view cart items
+  function viewCart() {
+    // Retrieve the cart items from localStorage
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cartItems.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    // Build a message for the cart details
+    let cartDetails = 'Your Cart:\n\n';
+    cartItems.forEach(item => {
+      cartDetails += `${item.name} - ${item.quantity} pcs - KSh ${item.price * item.quantity}\n`;
+    });
+    alert(cartDetails);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+body {
+    background-image: url("images/bghome.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+#h1 {
+    font-weight: lighter!important;
+    color: lightgrey;
+    margin-left: 5%;
+    text-shadow: 5px 5px 5px black;
+}
+
+.caret {
+    margin-left: 5px;
+}
+
+.inverse-dropdown {
+    background-color: #3a3a3a;
+    border-color: #080808;
+}
+
+.inverse-dropdown > li > a {
+    color: #9d9d9d;
+}
+
+.inverse-dropdown > .divider {
+    background-color: #000;
+}
+
+.padtop5 {
+    padding-top: 5px;
+}
+
+.padtop10 {
+    padding-top: 10px;
+}
+
+.padtop15 {
+    padding-top: 15px;
+}
+
+.panel {
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 80px;
+}
+
+.panel-default > .panel-heading {
+    text-align: center;
+    color: #FFFFFF;
+    background: #3a3a3a;
+    border-color: #ddd;
+    font-family: Verdana, Arial, sans-serif;
+    padding: 0px;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    background-color: darkgray;
+}
+
+th {
+    text-align: center;
+}
+
+.homecar {
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.martop7 {
+    margin-top: 7%;
+}
+
+.jumcust {
+    box-shadow: 3px 5px 5px rgba(47, 47, 47, 0.8);
+    border: 1px solid darkgrey;
+    border-radius: 0px;
+    text-align: center;
+    background-color: rgba(238, 238, 238, 0.95);
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th {
+    border-top: none;
+}
+
+.table>tbody>tr:hover {
+    background-color: rgba(238, 238, 238, 0.95);
+}
+
+.jumcust2 {
+    box-shadow: 3px 5px 5px rgba(47, 47, 47, 0.8);
+    border-radius: 0px;
+}
+
+a:link {
+    text-decoration: none;
+    color: #333;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.delbut > a {
+    color: white;
+}
+
+#contact {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid;
+    background-color: rgba(34, 34, 34, 0.9);
+    color: lightgray;
+    font-size: 1.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.linkto {
+    cursor: pointer;
+}
+
+.modaltext {
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+}
+
+#modalContactForm {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-title {
+    font-size: 3rem;
+}
+
+.navbar {
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.idlink:hover {
+    cursor: pointer;
+    background-color: rgba(101, 101, 101, 0.69);
+}
+
+#myCarousel {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.66);
+}

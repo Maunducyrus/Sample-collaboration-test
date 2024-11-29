@@ -1,0 +1,11 @@
+asgiref
+Django==3.2.6
+django-ckeditor==6.1.0
+django-crispy-forms==1.12.0
+django-js-asset==1.2.2
+django-phonenumber-field==5.2.0
+phonenumbers==8.12.29
+Pillow
+pytz
+sqlparse
+whitenoise

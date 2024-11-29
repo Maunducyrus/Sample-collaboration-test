@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+</head>
+<body>
+  <div>Good day Admin,</div>
+  <div>Kindly make an order to refill, The following drugs are running out of stock:</div>
+  <br><br>
+  <table>
+    <tr>
+        <th>Drug Name</th>
+        <th>Quantity</th>
+    </tr>
+    {% for item in stock %}
+    <tr>
+        <td>{{ item }}</td>
+        <td>{{ item.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

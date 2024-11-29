@@ -1,0 +1,72 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+nav ul{
+    display: flex;
+    list-style-type: none;
+    /*your can change the color of the nav background*/
+    padding: 20px;
+    margin: 0 0 0 auto;
+}
+nav ul li{
+    margin-right: 60px;
+    font-size: 20px;
+}
+nav .navbar-text{
+    font-size: 20px;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+nav ul li a:hover{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+nav .navbar-text:hover{
+    background-color: #0d6efd;
+    padding: 10px;
+    border-radius: 5px;
+}
+h1{
+    padding-top: 14px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
+/* Flexbox styling for the container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+    gap: 3rem; /* Space between cards */
+}
+
+/* Styling for each card */
+.card {
+    flex: 1 1 200px; /* Adjusts card width, allowing wrapping when space is limited */
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 1px solid #c8c5c5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*for small screens*/
+@media (max-width: 600px) {
+    .card-container {
+        flex-direction: column;
+    }
+}
+
+
